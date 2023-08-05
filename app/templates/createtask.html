@@ -1,0 +1,11 @@
+{% extends "./layouts/layout.html" %}
+{% block title %}{{title}}{%endblock%}
+{% block content %}
+<h1>Crear Tarea</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button>Save</button>
+</form> 
+{%endblock%}

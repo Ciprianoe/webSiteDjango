@@ -1,0 +1,23 @@
+{% extends "./layouts/layout.html" %}
+{% block title %}{{title}}{%endblock%}
+{% block content %}
+<h1>Projects Page</h1>
+
+<table class="table table-info">
+    <thead>
+        <tr>
+            <th scope="col">Nombre del proyecto</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody class="table-group-divider">
+        {% for project in projects %}
+        <tr>
+            <td>{{ project.name }}</td>
+            <td><a href="{% url 'detailproject' project.id %}" class="btn btn-danger">Detalles</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="/createprojects" class="btn btn-success">Agregar Proyecto</a>
+{%endblock%}

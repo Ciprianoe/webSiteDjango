@@ -1,0 +1,35 @@
+{% extends "./layouts/layout.html" %}
+{% block title %}{{title}}{%endblock%}
+{% block content %}
+<h1>Task Page</h1>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th >Name Task</th>
+        <th >desciption</th> 
+        <th>Done</th> 
+        <th>Accion</th>
+
+    </tr>       
+    </thead>
+    <tbody>
+        {% for tasks in task %}
+        <tr>
+          
+            <td>{{tasks.title}}</td>
+            <td>{{tasks.description}}</td>
+            {% if tasks.done == False %}
+            <td> 🕐 Tarea Pendiente</td>
+            {% else %} 
+            <td> ✅ Tarea Realizada</td> 
+            {% endif %}
+            <td> <a class="btn btn-info" >Done</a>  | <a class="btn btn-danger">delete</a></td>    
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<div class="container">
+   <a class="btn btn-success" href="/createtask">Create Task</a>
+</div>
+{%endblock%}
+
